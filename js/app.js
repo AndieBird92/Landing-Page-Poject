@@ -42,7 +42,6 @@ then addhtml and append and all that jazz
 things to add -ul -li -ancor
 */
 const dynamicNav = document.getElementById("navbar__list");
-const list = document.createElement("li");
 
 const sections = document.querySelectorAll("[data-nav]");
 console.log(sections);
@@ -51,9 +50,11 @@ console.log(sections);
 make a for loop to create the '4 sections' li and anchors 
 */
 sections.forEach((section) => {
+  const list = document.createElement("li");
   const anchor = document.createElement("a");
   const sectionId = section.getAttribute("id");
-  anchor.setAttribute("href", sectionId);
+  anchor.setAttribute("href", "#" + sectionId);
+  anchor.setAttribute("class", "menu__link");
   anchor.innerHTML = ` ${sectionId}`;
   list.append(anchor);
   dynamicNav.appendChild(list);
@@ -67,7 +68,15 @@ sections.forEach((section) => {
 // }
 
 // Add class 'active' to section when near top of viewport
-//
+
+const viewingSection3 = document.querySelector("#section3");
+
+window.addEventListener("scroll", function () {
+  if (viewingSection3.getBoundingClientRect().top < this.window.innerHeight) {
+    console.log("im here");
+  }
+});
+
 // Scroll to anchor ID using scrollTO event
 
 /**
