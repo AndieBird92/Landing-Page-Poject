@@ -69,11 +69,28 @@ sections.forEach((section) => {
 
 // Add class 'active' to section when near top of viewport
 
-const viewingSection3 = document.querySelector("#section3");
+const puppies = document.getElementsByClassName("menu__link");
 
 window.addEventListener("scroll", function () {
-  if (viewingSection3.getBoundingClientRect().top < this.window.innerHeight) {
-    console.log("im here");
+  let cake = false;
+  for (let i = 0; i < sections.length; i++) {
+    let section = sections[i];
+    const kitty = section.getBoundingClientRect();
+    //console.log(i, section, kitty);
+    if (kitty.bottom > 200 && kitty.top < screen.availHeight) {
+      if (!cake) {
+        cake = true;
+        console.log(i, section, kitty);
+        //q = { i, section, kitty };
+        //window.section = section;
+        //window.kitty = kitty;
+        puppies[i].classList.add("active");
+      } else {
+        puppies[i].classList.remove("active");
+      }
+    } else {
+      puppies[i].classList.remove("active");
+    }
   }
 });
 
