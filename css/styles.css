@@ -9,9 +9,7 @@
 */
 
 /* ---- Base Rules ---- */
-html {
-  scroll-behavior: smooth;
-}
+
 body {
   background: rgb(136, 203, 171);
   background: linear-gradient(
@@ -104,6 +102,35 @@ section {
   top: 0;
   width: 100%;
   z-index: 5;
+}
+
+/* form Styles */
+input:focus:invalid {
+  border: 2px dashed red;
+}
+input:focus:valid {
+  border: 2px dashed rgb(138, 214, 24);
+}
+
+input:focus {
+  outline: none;
+}
+
+.valCard {
+  border: 5px solid whitesmoke;
+  background-color: rgb(76, 76, 180);
+  height: 150px;
+  width: 200px;
+  border-radius: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  z-index: 12;
+  position: absolute;
+  top: 160px;
+  padding: 10px;
+  display: none;
 }
 
 /* Footer Styles */
